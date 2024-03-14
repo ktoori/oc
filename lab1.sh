@@ -8,6 +8,21 @@ if [[ $1 == "-h" ]]; then #Print instruction
 	exit 0
 fi
 
+if [[ $start == "" || $finish == "" || $prefix == "" ]]; then
+	if [[ $start == "" ]]; then
+		echo "error: start is not found"
+	fi
+
+	if [[ $finish == "" ]]; then
+		echo "error: finish is not found"
+	fi
+
+	if [[ $prefix == "" ]]; then
+		echo "error: prefix is not found"
+	fi
+	exit 1
+fi
+
 if ! [[ $start =~ ^[0-9]+$ ]] || ! [[ $finish =~ ^[0-9]+$ ]]; then
 	echo "error: start and finish type must be int"
 	exit 1
